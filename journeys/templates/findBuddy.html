@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Buddy</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="navbar">
+        <div class="title">
+          <a href="/journeys">Warren Buddy System</a>
+        </div>
+        <div class="navButtons">
+          <a href="/journeys/addRequest/">Add Request</a>
+          <a href="">Find Buddy</a>
+        </div>
+    </div>
+    <h1>Find Buddy</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="userInput">Enter:</label>
+        <input type="text" id="userInput" name="user_input" placeholder="Type something..." required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if match %}
+        <h2>Buddies:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <!--<th>PID</th>
+                    <th>Name</th>
+                    <th>Start</th>
+                    <th>Destination</th>
+                    <th>Time</th>-->
+                    {% for i in match.0 %}
+                        <th>Field {{ forloop.counter }}</th>
+                    {% empty %}
+                        <th>None</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in match %}
+                <tr>
+                    {% for i in item %}
+                        <td>{{ i }}</td>
+                    {% empty %}
+                        <th>None</th>
+                    {% endfor %}
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No data available</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</body>
+</html>

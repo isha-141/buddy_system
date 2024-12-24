@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <div id="navbar">
+            <div class="title">
+              <a href="/journeys">Warren Buddy System</a>
+            </div>
+            <div class="navButtons">
+              <a href="">Add Request</a>
+              <a href="/journeys/findBuddy/">Find Buddy</a>
+            </div>
+          </div>
+        <div class="form">
+            <form action="saverequest/" method="post">
+            {% csrf_token %}
+            PID:<br>
+            <input name="pid">
+            <br><br>
+            Full Name:<br>
+            <input name="fullname">
+            <br><br>
+            Starting Point:<br>
+            <select name="startingpt" id="startingpt">
+                <option value="Geisel Library">Geisel Library</option>
+                <option value="Price Center">Price Center</option>
+                <option value="Revelle">Revelle</option>
+                <option value="Muir">Muir</option>
+                <option value="Marshall">Marshall</option>
+                <option value="Warren">Warren</option>
+                <option value="Roosevelt">Roosevelt</option>
+                <option value="Sixth">Sixth</option>
+                <option value="Seventh">Seventh</option>
+                <option value="Eight">Eighth</option>
+            </select>
+            <br><br>
+            Destination:<br>
+            <select name="destination" id="destination">
+                <option value="Geisel Library">Geisel Library</option>
+                <option value="Price Center">Price Center</option>
+                <option value="Revelle">Revelle</option>
+                <option value="Muir">Muir</option>
+                <option value="Marshall">Marshall</option>
+                <option value="Warren">Warren</option>
+                <option value="Roosevelt">Roosevelt</option>
+                <option value="Sixth">Sixth</option>
+                <option value="Seventh">Seventh</option>
+                <option value="Eight">Eighth</option>
+            </select>
+            <br><br>
+            Start Time:<br>
+            <input name="starttime">
+            <br><br>
+            <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>

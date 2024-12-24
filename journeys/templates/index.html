@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Warren Buddy System</title>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+
+  <body>
+    <div id="navbar">
+      <div class="title">
+        <a href="">Warren Buddy System</a>
+      </div>
+      <div class="navButtons">
+        <a href="addRequest/">Add Request</a>
+        <a href="findBuddy/">Find Buddy</a>
+      </div>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>PID</th>
+                <th>Name</th>
+                <th>Start</th>
+                <th>Destination</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in allrequests %}
+            <tr>
+                <td>{{ item.PID }}</td>
+                <td>{{ item.fullname }}</td>
+                <td>{{ item.start }}</td>
+                <td>{{ item.end }}</td>
+                <td>{{ item.start_time }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No data available</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </body>
+</html>
