@@ -47,7 +47,7 @@ def findBuddy(request):
 
 def text_to_sql(natural_language_query, table_schema):
     client = OpenAI(
-        api_key="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"
+        api_key=PASTE KEY HERE
     )
 
     messages = [
