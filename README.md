@@ -1,8 +1,8 @@
-# Buddy System
+# Campus Companion
 
 This is a Django project that allows users to add journeys to an SQLite Database, view the database, and find information from the database using OpenAI GPT 4o-mini and RAG.
 
-The purpose of the Buddy System is to allow students walking alone to be accompanied by their peers as they can add information about their journeys, while others can look through the different journeys in order to find a buddy. The current project simply proves the concept but does not have the security features added.
+The purpose of the Campus Companion is to allow students walking alone to be accompanied by their peers as they can add information about their journeys, while others can look through the different journeys in order to find a buddy. The current project simply proves the concept but does not have the security features added.
 
 The steps in this document assume that you have access to an OpenShift deployment that you can deploy applications on.
 
